@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        val characters = "characters"
         binding.imageButtonCharacters.setOnClickListener {
             tapOnCharacters()
         }
@@ -34,10 +33,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun tapOnCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
-            val response: Response<CharacterResponse> =
-                retrofit.create(ApiService::class.java).getCharacters()
-            if (response.isSuccessful) {
-                Log.i("jose", "funciona prro")
+            val responseModel: Response<CharacterResponseModel> =
+                retrofit.create(ApiService::class.java).getCharacters(CHARACTERS_API)
+            val response: CharacterResponseModel? = responseModel.body()
+            if (responseModel.isSuccessful) {
+                Log.i(LOG_TAG, response?.info.toString())
             }
         }
     }
@@ -47,5 +47,13 @@ class MainActivity : AppCompatActivity() {
             .Builder()
             .baseUrl("https://rickandmortyapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create()).build()
+    }
+
+    companion object {
+        const val CHARACTERS_API = "character"
+        const val LOCATIONS_API = "location"
+        const val EPISODES_API = "episode"
+
+        const val LOG_TAG = "RickAndMortyApp"
     }
 }

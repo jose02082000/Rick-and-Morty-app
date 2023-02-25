@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("{character}")
-    suspend fun getCharacters(@Path("character") characters: String): Response<CharacterResponse>
+    @GET("{endpoint}")
+    suspend fun getCharacters(@Path("endpoint") endpoint: String): Response<CharacterResponseModel>
 }
