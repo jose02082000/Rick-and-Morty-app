@@ -6,4 +6,5 @@
     <string name="image_description_episodes">image button episodes</string>
     <string name="image_description_characters">image button characters</string>
     <string name="image_description_location">image button location</string>
+    <string name="id_characters">id:</string>
 </resources>
