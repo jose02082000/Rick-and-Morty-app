@@ -2,7 +2,6 @@ package com.example.rickandmortyapp
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,6 +23,7 @@ class CharactersActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCharactersBinding
     private lateinit var retrofit: Retrofit
     private lateinit var adapter: CharactersAdapters
+    private val utils = Utils()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +31,17 @@ class CharactersActivity : AppCompatActivity() {
         setContentView(binding.root)
         retrofit = getRetrofit()
 
-        initUi()
         tapOnCharacters()
     }
 
-    private fun initUi() {
+    private fun initRecyclerView(charactersList: List<CharactersResultModel>) {
         binding.rvCharacters.setHasFixedSize(true)
-        adapter = CharactersAdapters()
+        adapter = CharactersAdapters(charactersList)
         binding.rvCharacters.adapter = adapter
         val manager = GridLayoutManager(this, 2)
         binding.rvCharacters.layoutManager = manager
+
+        binding.progressBar.isVisible = false
     }
 
     private fun tapOnCharacters() {
@@ -49,25 +50,17 @@ class CharactersActivity : AppCompatActivity() {
             val responseModel: Response<CharacterResponseModel> =
                 retrofit.create(ApiService::class.java).getCharacters(CHARACTERS_API)
             val response: CharacterResponseModel? = responseModel.body()
-            if (responseModel.isSuccessful) {
-                Log.i(LOG_TAG, response?.info.toString())
-                if (response?.results != null) {
-                    runOnUiThread {
-                        adapter.updateListCharacters(response.results)
+
+            runOnUiThread {
+                if (responseModel.isSuccessful) {
+                    Log.i(LOG_TAG, response?.info.toString())
+                    if (response?.results != null) {
+                        initRecyclerView(response.results)
+                    } else {
                         binding.progressBar.isVisible = false
+                        utils.showToastOnError(applicationContext, getString(R.string.toast_character))
                     }
                 } else {
-                    runOnUiThread {
-                        binding.progressBar.isVisible = false
-                        Toast.makeText(
-                            applicationContext,
-                            R.string.toast_character,
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                    }
-                }
-            } else {
-                runOnUiThread {
                     binding.progressBar.isVisible = false
                 }
             }
