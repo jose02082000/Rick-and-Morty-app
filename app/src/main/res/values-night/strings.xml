@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_episodes">Error, por favor intente de nuevo o verifique la conexion a internet</string>
+</resources>

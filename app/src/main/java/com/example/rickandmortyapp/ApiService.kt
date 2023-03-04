@@ -8,4 +8,10 @@ interface ApiService {
 
     @GET("{endpoint}")
     suspend fun getCharacters(@Path("endpoint") endpoint: String): Response<CharacterResponseModel>
+
+    @GET("{endpoint}")
+    suspend fun getEpisodes(@Path("endpoint") endpoint: String): Response<EpisodeResponseModel>
+
+    @GET("{endpoint}")
+    suspend fun getLocations(@Path("endpoint") endpoint: String): Response<LocationsResponseModel>
 }

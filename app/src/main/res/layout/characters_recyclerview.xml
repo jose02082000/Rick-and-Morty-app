@@ -20,7 +20,8 @@
             android:layout_width="140dp"
             android:layout_height="120dp"
             android:layout_gravity="center|top"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/image_characters" />
 
         <TextView
             android:id="@+id/tvNameCharacters"
@@ -40,19 +41,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="0dp"
                 android:maxLines="1"
                 android:text="@string/id_characters"
-                android:textStyle="bold"
-                android:layout_marginTop="0dp"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvIdCharacters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:maxLines="1"
-                android:textStyle="bold"
-                android:layout_marginStart="4dp"/>
+                android:textStyle="bold" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

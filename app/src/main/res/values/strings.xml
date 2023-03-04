@@ -6,5 +6,11 @@
     <string name="image_description_episodes">image button episodes</string>
     <string name="image_description_characters">image button characters</string>
     <string name="image_description_location">image button location</string>
+    <string name="image_characters">image character</string>
+    <string name="ic_video_description">image video</string>
     <string name="id_characters">id:</string>
+    <string name="name_episode">Name :</string>
+    <string name="episode_season">Episode :</string>
+    <string name="toast_character">Error, por favor intente de nuevo o verifique la conexion a internet</string>
+    <string name="toast_episodes">Error, por favor intente de nuevo o verifique la conexion a internet</string>
 </resources>

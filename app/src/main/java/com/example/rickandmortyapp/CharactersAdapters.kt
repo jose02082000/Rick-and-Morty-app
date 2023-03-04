@@ -1,5 +1,6 @@
 package com.example.rickandmortyapp
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,8 @@ class CharactersAdapters(
 ) :
     RecyclerView.Adapter<CharactersViewHolder>() {
 
-    fun updateList(list: List<CharactersResultModel>) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateListCharacters(list: List<CharactersResultModel>) {
         charactersList = list
         notifyDataSetChanged()
     }
