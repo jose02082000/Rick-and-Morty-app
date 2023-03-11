@@ -1,5 +1,6 @@
 package com.example.rickandmortyapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ class CharactersActivity : AppCompatActivity() {
     companion object {
         const val CHARACTERS_API = "character"
         const val LOG_TAG = "RickAndMortyApp"
+        const val EXTRA_ID = "extra_id"
     }
 
     private lateinit var binding: ActivityCharactersBinding
@@ -36,7 +38,7 @@ class CharactersActivity : AppCompatActivity() {
 
     private fun initRecyclerView(charactersList: List<CharactersResultModel>) {
         binding.rvCharacters.setHasFixedSize(true)
-        adapter = CharactersAdapters(charactersList)
+        adapter = CharactersAdapters(charactersList) { navigateToDetailCharacter(it) }
         binding.rvCharacters.adapter = adapter
         val manager = GridLayoutManager(this, 2)
         binding.rvCharacters.layoutManager = manager
@@ -58,7 +60,10 @@ class CharactersActivity : AppCompatActivity() {
                         initRecyclerView(response.results)
                     } else {
                         binding.progressBar.isVisible = false
-                        utils.showToastOnError(applicationContext, getString(R.string.toast_character))
+                        utils.showToastOnError(
+                            applicationContext,
+                            getString(R.string.toast_character),
+                        )
                     }
                 } else {
                     binding.progressBar.isVisible = false
@@ -72,5 +77,11 @@ class CharactersActivity : AppCompatActivity() {
             .Builder()
             .baseUrl("https://rickandmortyapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create()).build()
+    }
+
+    private fun navigateToDetailCharacter(name: String) {
+        val intent = Intent(this, DetailCharactersActivity::class.java)
+        intent.putExtra(EXTRA_ID, name)
+        startActivity(intent)
     }
 }

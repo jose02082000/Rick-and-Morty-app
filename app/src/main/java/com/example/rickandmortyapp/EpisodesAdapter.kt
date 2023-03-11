@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class EpisodesAdapter(
     var episodesList: List<EpisodesResultModel> = emptyList(),
+    private val onItemSelected: (Int) -> Unit,
 ) :
     RecyclerView.Adapter<EpisodesViewHolder>() {
 
@@ -26,7 +27,7 @@ class EpisodesAdapter(
     }
 
     override fun onBindViewHolder(holder: EpisodesViewHolder, position: Int) {
-        holder.render(episodesList[position])
+        holder.render(episodesList[position], onItemSelected)
     }
 
     override fun getItemCount(): Int {

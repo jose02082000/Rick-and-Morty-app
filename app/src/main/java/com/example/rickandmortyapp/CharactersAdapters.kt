@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class CharactersAdapters(
-    private var charactersList: List<CharactersResultModel>
+    private var charactersList: List<CharactersResultModel>,
+    private val onItemSelected: (String) -> Unit,
 ) :
     RecyclerView.Adapter<CharactersViewHolder>() {
 
@@ -26,7 +27,7 @@ class CharactersAdapters(
     }
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
-        holder.render(charactersList[position])
+        holder.render(charactersList[position], onItemSelected)
     }
 
     override fun getItemCount(): Int {

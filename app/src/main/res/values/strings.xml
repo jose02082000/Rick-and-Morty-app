@@ -13,4 +13,17 @@
     <string name="episode_season">Episode :</string>
     <string name="toast_character">Error, por favor intente de nuevo o verifique la conexion a internet</string>
     <string name="toast_episodes">Error, por favor intente de nuevo o verifique la conexion a internet</string>
+    <string name="toast_location">Error, por favor intente de nuevo o verifique la conexion a internet</string>
+    <string name="nameDetail">Name :</string>
+    <string name="gender_character">Gender :</string>
+    <string name="status_character">Status :</string>
+    <string name="species_characters">Species :</string>
+    <string name="created_details">Created :</string>
+    <string name="origin_character">Origin :</string>
+    <string name="image_description_characters_detail">image character</string>
+    <string name="type_location">Type :</string>
+    <string name="dimension_location_detail">Dimension :</string>
+    <string name="ic_locations_descriptions">icon location</string>
+    <string name="air_date">Air Date:</string>
+    <string name="episode_description">Episode :</string>
 </resources>

@@ -15,7 +15,7 @@ data class LocationsInfoModel(
 )
 
 data class LocationsResultsModel(
-    @SerializedName("id") var id: Int? = null,
+    @SerializedName("id") var id: Int,
     @SerializedName("name") var name: String? = null,
     @SerializedName("type") var type: String? = null,
     @SerializedName("dimension") var dimension: String? = null,

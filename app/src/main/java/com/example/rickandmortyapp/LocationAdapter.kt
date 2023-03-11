@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class LocationAdapter(
-    var locationsList: List<LocationsResultsModel> = emptyList(),
+    var locationsList: List<LocationsResultsModel>,
+    private val onItemSelected: (Int) -> Unit,
 ) :
     RecyclerView.Adapter<LocationsViewHolder>() {
 
@@ -26,7 +27,7 @@ class LocationAdapter(
     }
 
     override fun onBindViewHolder(holder: LocationsViewHolder, position: Int) {
-        holder.render(locationsList[position])
+        holder.render(locationsList[position], onItemSelected)
     }
 
     override fun getItemCount(): Int {
