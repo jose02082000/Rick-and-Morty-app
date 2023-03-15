@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".DetailCharactersActivity">
+    tools:context=".presentation.view.activity.DetailCharactersActivity">
 
     <ImageView
         android:id="@+id/ivImageCharacterDetail"

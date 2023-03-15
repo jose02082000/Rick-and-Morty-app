@@ -1,7 +1,8 @@
-package com.example.rickandmortyapp
+package com.example.rickandmortyapp.presentation.view.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 import com.example.rickandmortyapp.databinding.LocationsRecyclerviewBinding
 
 class LocationsViewHolder(view: View) : RecyclerView.ViewHolder(view) {

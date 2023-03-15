@@ -14,25 +14,25 @@
         android:theme="@style/Theme.RickAndMortyApp"
         tools:targetApi="31">
         <activity
-            android:name=".DetailLocationsActivity"
+            android:name=".presentation.view.activity.DetailLocationsActivity"
             android:exported="false" />
         <activity
-            android:name=".EpisodesDetailActivity"
+            android:name=".presentation.view.activity.EpisodesDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailCharactersActivity"
+            android:name=".presentation.view.activity.DetailCharactersActivity"
             android:exported="false" />
         <activity
-            android:name=".LocationsActivity"
+            android:name=".presentation.view.activity.LocationsActivity"
             android:exported="false" />
         <activity
-            android:name=".EpisodesActivity"
+            android:name=".presentation.view.activity.EpisodesActivity"
             android:exported="false" />
         <activity
-            android:name=".CharactersActivity"
+            android:name=".presentation.view.activity.CharactersActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

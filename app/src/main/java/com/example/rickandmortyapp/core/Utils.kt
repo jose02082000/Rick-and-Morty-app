@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp
+package com.example.rickandmortyapp.core
 
 import android.content.Context
 import android.widget.Toast

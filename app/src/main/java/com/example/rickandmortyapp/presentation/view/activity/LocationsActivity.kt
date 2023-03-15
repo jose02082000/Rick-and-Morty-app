@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp
+package com.example.rickandmortyapp.presentation.view.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,13 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.rickandmortyapp.domain.model.LocationsResponseModel
+import com.example.rickandmortyapp.domain.model.LocationsResultsModel
+import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.core.Utils
+import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityLocationsBinding
+import com.example.rickandmortyapp.presentation.view.adapter.LocationAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

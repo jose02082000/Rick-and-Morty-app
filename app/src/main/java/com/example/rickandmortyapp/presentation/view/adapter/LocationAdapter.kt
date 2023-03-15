@@ -1,8 +1,10 @@
-package com.example.rickandmortyapp
+package com.example.rickandmortyapp.presentation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rickandmortyapp.domain.model.LocationsResultsModel
+import com.example.rickandmortyapp.R
 
 class LocationAdapter(
     var locationsList: List<LocationsResultsModel>,

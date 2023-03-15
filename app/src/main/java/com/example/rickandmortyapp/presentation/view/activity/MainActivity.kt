@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp
+package com.example.rickandmortyapp.presentation.view.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,13 +8,6 @@ import com.example.rickandmortyapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-
-        const val LOCATIONS_API = "location"
-        const val EPISODES_API = "episode"
-        const val EXTRA_CHARACTER = "character"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
