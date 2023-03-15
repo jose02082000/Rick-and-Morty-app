@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".DetailCharactersActivity">
 
@@ -19,21 +20,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/nameDetail"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvNameCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="Rick Sanchez" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -45,21 +40,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/gender_character"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvGenderCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="Male" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -71,21 +60,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/status_character"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvStatusCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="Alive" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -97,21 +80,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/species_characters"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSpecieCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="Human" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -123,21 +100,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/created_details"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvCreateCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="2017-11-04T18:48:46.250Z" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -149,21 +120,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/origin_character"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvOriginCharacterDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detailsPageStyle"
             tools:text="Earth (C-137)" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

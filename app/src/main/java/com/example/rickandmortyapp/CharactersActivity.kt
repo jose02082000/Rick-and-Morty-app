@@ -17,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CharactersActivity : AppCompatActivity() {
 
     companion object {
-        const val CHARACTERS_API = "character"
         const val LOG_TAG = "RickAndMortyApp"
         const val EXTRA_ID = "extra_id"
     }
@@ -33,12 +32,14 @@ class CharactersActivity : AppCompatActivity() {
         setContentView(binding.root)
         retrofit = getRetrofit()
 
-        tapOnCharacters()
+        loadCharactersRecyclerView()
     }
 
     private fun initRecyclerView(charactersList: List<CharactersResultModel>) {
         binding.rvCharacters.setHasFixedSize(true)
-        adapter = CharactersAdapters(charactersList) { navigateToDetailCharacter(it) }
+        adapter = CharactersAdapters(charactersList) {
+            navigateToDetailCharacter(it)
+        }
         binding.rvCharacters.adapter = adapter
         val manager = GridLayoutManager(this, 2)
         binding.rvCharacters.layoutManager = manager
@@ -46,16 +47,16 @@ class CharactersActivity : AppCompatActivity() {
         binding.progressBar.isVisible = false
     }
 
-    private fun tapOnCharacters() {
+    private fun loadCharactersRecyclerView() {
         binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val responseModel: Response<CharacterResponseModel> =
-                retrofit.create(ApiService::class.java).getCharacters(CHARACTERS_API)
+                retrofit.create(ApiService::class.java).getCharacters()
             val response: CharacterResponseModel? = responseModel.body()
 
             runOnUiThread {
                 if (responseModel.isSuccessful) {
-                    Log.i(LOG_TAG, response?.info.toString())
+                    Log.i(LOG_TAG, response?.information.toString())
                     if (response?.results != null) {
                         initRecyclerView(response.results)
                     } else {
@@ -79,9 +80,9 @@ class CharactersActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
-    private fun navigateToDetailCharacter(name: String) {
+    private fun navigateToDetailCharacter(id: String) {
         val intent = Intent(this, DetailCharactersActivity::class.java)
-        intent.putExtra(EXTRA_ID, name)
+        intent.putExtra(EXTRA_ID, id)
         startActivity(intent)
     }
 }

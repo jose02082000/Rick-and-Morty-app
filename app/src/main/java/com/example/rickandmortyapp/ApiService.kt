@@ -6,15 +6,15 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("{endpoint}")
-    suspend fun getCharacters(@Path("endpoint") endpoint: String): Response<CharacterResponseModel>
+    @GET("character")
+    suspend fun getCharacters(): Response<CharacterResponseModel>
 
-    @GET("{endpoint}")
-    suspend fun getCharactersDetail(@Path("endpoint") name: String): Response<CharactersResultModel>
+    @GET("character/{id}")
+    suspend fun getCharactersDetail(@Path("id") id: String): Response<CharactersResultModel>
 
-    @GET("{endpoint}")
-    suspend fun getEpisodes(@Path("endpoint") endpoint: String): Response<EpisodeResponseModel>
+    @GET("episode")
+    suspend fun getEpisodes(): Response<EpisodeResponseModel>
 
-    @GET("{endpoint}")
-    suspend fun getLocations(@Path("endpoint") endpoint: String): Response<LocationsResponseModel>
+    @GET("location")
+    suspend fun getLocations(): Response<LocationsResponseModel>
 }

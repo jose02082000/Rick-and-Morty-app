@@ -17,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class LocationsActivity : AppCompatActivity() {
 
     companion object {
-        const val LOCATIONS_API = "location"
         const val LOG_TAG = "RickAndMortyApp"
         const val EXTRA_ID = "extra_id"
     }
@@ -50,7 +49,7 @@ class LocationsActivity : AppCompatActivity() {
         binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val responseModelLocations: Response<LocationsResponseModel> =
-                retrofit.create(ApiService::class.java).getLocations(LOCATIONS_API)
+                retrofit.create(ApiService::class.java).getLocations()
             val response: LocationsResponseModel? = responseModelLocations.body()
 
             runOnUiThread {

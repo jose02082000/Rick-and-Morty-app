@@ -17,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class EpisodesActivity : AppCompatActivity() {
 
     companion object {
-        const val EPISODES_API = "episode"
         const val LOG_TAG = "RickAndMortyApp"
         const val EXTRA_ID = "extra_id"
     }
@@ -50,7 +49,7 @@ class EpisodesActivity : AppCompatActivity() {
         binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val responseModelEpisodes: Response<EpisodeResponseModel> =
-                retrofit.create(ApiService::class.java).getEpisodes(EPISODES_API)
+                retrofit.create(ApiService::class.java).getEpisodes()
             val response: EpisodeResponseModel? = responseModelEpisodes.body()
 
             runOnUiThread {

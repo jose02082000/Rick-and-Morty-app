@@ -23,14 +23,14 @@ class DetailCharactersActivity : AppCompatActivity() {
         binding = ActivityDetailcharactersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val name = intent.getStringExtra(EXTRA_ID).orEmpty()
-        getCharacterInformation(name)
+        val id = intent.getStringExtra(EXTRA_ID).orEmpty()
+        getCharacterInformation(id)
     }
 
-    private fun getCharacterInformation(name: String) {
+    private fun getCharacterInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val charactersDetail =
-                getRetrofit().create(ApiService::class.java).getCharactersDetail(name)
+                getRetrofit().create(ApiService::class.java).getCharactersDetail(id)
             if (charactersDetail.body() != null) {
                 runOnUiThread {
                     creteUi(charactersDetail.body()!!)
@@ -41,11 +41,14 @@ class DetailCharactersActivity : AppCompatActivity() {
 
     private fun creteUi(character: CharactersResultModel) {
         Picasso.get().load(character.image).into(binding.ivImageCharacterDetail)
-        binding.tvNameCharacterDetail.text = character.name
-        binding.tvGenderCharacterDetail.text = character.gender
-        binding.tvCreateCharacterDetail.text = character.created
-        binding.tvSpecieCharacterDetail.text = character.species
-        binding.tvStatusCharacterDetail.text = character.status
+        with(binding) {
+            tvNameCharacterDetail.text = character.name
+            tvGenderCharacterDetail.text = character.gender
+            tvCreateCharacterDetail.text = character.created
+            tvSpecieCharacterDetail.text = character.species
+            tvStatusCharacterDetail.text = character.status
+            tvOriginCharacterDetail.text = character.origin.name
+        }
     }
 
     private fun getRetrofit(): Retrofit {

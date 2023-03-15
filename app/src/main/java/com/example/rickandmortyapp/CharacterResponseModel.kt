@@ -3,7 +3,7 @@ package com.example.rickandmortyapp
 import com.google.gson.annotations.SerializedName
 
 data class CharacterResponseModel(
-    @SerializedName("info") var info: CharactersInfoModel? = CharactersInfoModel(),
+    @SerializedName("info") var information: CharactersInfoModel? = CharactersInfoModel(),
     @SerializedName("results") var results: ArrayList<CharactersResultModel> = arrayListOf(),
 )
 
@@ -21,7 +21,7 @@ data class CharactersResultModel(
     @SerializedName("species") var species: String,
     @SerializedName("type") var type: String,
     @SerializedName("gender") var gender: String,
-    @SerializedName("originModel") var origin: OriginModel,
+    @SerializedName("origin") var origin: OriginModel,
     @SerializedName("location") var location: LocationModel,
     @SerializedName("image") var image: String,
     @SerializedName("episode") var episode: ArrayList<String> = arrayListOf(),

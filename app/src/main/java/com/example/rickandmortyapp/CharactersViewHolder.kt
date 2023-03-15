@@ -13,6 +13,6 @@ class CharactersViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvIdCharacters.text = charactersResultModel.id.toString()
         Picasso.get().load(charactersResultModel.image).into(binding.ivCharacters)
 
-        binding.root.setOnClickListener { onItemSelected(charactersResultModel.name) }
+        binding.root.setOnClickListener { onItemSelected(charactersResultModel.id.toString()) }
     }
 }
