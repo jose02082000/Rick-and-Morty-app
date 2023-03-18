@@ -1,7 +1,7 @@
 package com.example.rickandmortyapp.domain.usecase
 
-import com.example.rickandmortyapp.domain.model.CharactersResultModel
 import com.example.rickandmortyapp.data.repository.CharactersRepository
+import com.example.rickandmortyapp.domain.model.CharactersResultModel
 
 class GetCharactersUseCase {
     private val repository by lazy { CharactersRepository() }

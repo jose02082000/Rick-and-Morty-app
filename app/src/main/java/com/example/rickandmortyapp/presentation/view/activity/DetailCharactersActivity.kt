@@ -2,9 +2,9 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.domain.model.CharactersResultModel
 import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityDetailcharactersBinding
+import com.example.rickandmortyapp.domain.model.CharactersResultModel
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

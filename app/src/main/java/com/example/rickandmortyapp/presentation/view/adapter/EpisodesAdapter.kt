@@ -8,7 +8,7 @@ import com.example.rickandmortyapp.R
 
 class EpisodesAdapter(
     var episodesList: List<EpisodesResultModel> = emptyList(),
-    private val onItemSelected: (Int) -> Unit,
+    private val onItemSelected: (String) -> Unit,
 ) :
     RecyclerView.Adapter<EpisodesViewHolder>() {
 

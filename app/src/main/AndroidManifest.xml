@@ -17,7 +17,7 @@
             android:name=".presentation.view.activity.DetailLocationsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.view.activity.EpisodesDetailActivity"
+            android:name=".presentation.view.activity.DetailEpisodesActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.view.activity.DetailCharactersActivity"
