@@ -16,12 +16,12 @@ interface ApiService {
     @GET("episode")
     suspend fun getEpisodes(): Response<EpisodeResponseModel>
 
-    @GET("character/{id}")
+    @GET("episode/{id}")
     suspend fun getEpisodesDetail(@Path("id") id: String): Response<EpisodesResultModel>
 
     @GET("location")
     suspend fun getLocations(): Response<LocationsResponseModel>
 
-    @GET("character/{id}")
+    @GET("location/{id}")
     suspend fun getLocationsDetail(@Path("id") id: String): Response<LocationsResultsModel>
 }

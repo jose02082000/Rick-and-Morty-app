@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="toast_episodes">Error, por favor intente de nuevo o verifique la conexion a internet</string>
-    <string name="nameDetail">Nombre :</string>
-    <string name="gender_character">Género</string>
+    <string name="nameDetail">Name :</string>
+    <string name="gender_character">Gender :</string>
     <string name="species_characters">Species :</string>
     <string name="created_details">Created :</string>
     <string name="type_location">Type :</string>

@@ -14,18 +14,14 @@ import com.example.rickandmortyapp.presentation.viewmodel.LocationsViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class LocationsActivity : AppCompatActivity() {
 
     companion object {
-        const val LOG_TAG = "RickAndMortyApp"
         const val EXTRA_ID = "extra_id"
     }
 
     private lateinit var binding: ActivityLocationsBinding
-    private lateinit var retrofit: Retrofit
     private lateinit var adapter: LocationAdapter
     private val utils = Utils()
     private val locationsViewModel by lazy { LocationsViewModel() }
@@ -68,7 +64,7 @@ class LocationsActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToDetailLocations(id: Int) {
+    private fun navigateToDetailLocations(id: String) {
         val intent = Intent(this, DetailLocationsActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
         startActivity(intent)

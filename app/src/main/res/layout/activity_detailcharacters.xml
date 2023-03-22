@@ -14,121 +14,80 @@
         android:contentDescription="@string/image_description_characters_detail"
         android:scaleType="centerCrop" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/nameDetail"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/nameDetail" />
 
         <TextView
             android:id="@+id/tvNameCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="Rick Sanchez" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/gender_character"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/gender_character" />
 
         <TextView
             android:id="@+id/tvGenderCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="Male" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/status_character"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/status_character" />
 
         <TextView
             android:id="@+id/tvStatusCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="Alive" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/species_characters"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/species_characters" />
 
         <TextView
             android:id="@+id/tvSpecieCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="Human" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/created_details"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/created_details" />
 
         <TextView
             android:id="@+id/tvCreateCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="2017-11-04T18:48:46.250Z" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_marginEnd="8dp"
-            android:text="@string/origin_character"
-            style="@style/detailsPageStyle"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/origin_character" />
 
         <TextView
             android:id="@+id/tvOriginCharacterDetail"
-            android:layout_marginEnd="12dp"
-            style="@style/detailsPageStyle"
+            style="@style/detail_style"
             tools:text="Earth (C-137)" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

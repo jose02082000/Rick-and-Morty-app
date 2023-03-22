@@ -2,7 +2,6 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.core.RetrofitHelper.getRetrofit
 import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityEpisodesDetailBinding
 import com.example.rickandmortyapp.domain.model.EpisodesResultModel
@@ -31,7 +30,8 @@ class DetailEpisodesActivity : AppCompatActivity() {
 
     private fun getEpisodesInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val episodeDetail = getRetrofit().create(ApiService::class.java).getEpisodesDetail(id)
+            val episodeDetail =
+                getRetrofit().create(ApiService::class.java).getEpisodesDetail(id)
             if (episodeDetail.body() != null) {
                 runOnUiThread {
                     createUi(episodeDetail.body()!!)

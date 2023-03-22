@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class DetailLocationsActivity : AppCompatActivity() {
 
@@ -26,10 +25,10 @@ class DetailLocationsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val id = intent.getStringExtra(EXTRA_ID).orEmpty()
-        getLocationDetail(id)
+        getLocationInformation(id)
     }
 
-    private fun getLocationDetail(id: String) {
+    private fun getLocationInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val locationDetail =
                 getRetrofit().create(ApiService::class.java).getLocationsDetail(id)

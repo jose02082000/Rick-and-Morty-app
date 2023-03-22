@@ -12,113 +12,57 @@
         android:layout_height="180dp"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
-        android:src="@drawable/ic_video"
-        android:contentDescription="@string/ic_video_description"/>
+        android:contentDescription="@string/ic_video_description"
+        android:src="@drawable/ic_video" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/nameDetail"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/nameDetail" />
 
         <TextView
             android:id="@+id/tvNameLocationDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detail_style"
             tools:text="Pilot" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/air_date"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/air_date" />
 
         <TextView
             android:id="@+id/tvAirDateLocationDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detail_style"
             tools:text="December 2, 2013" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/episode_description"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/episode_description" />
 
         <TextView
             android:id="@+id/tvEpísodeLocationDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detail_style"
             tools:text="S01E01" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/linear_layout_style">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/created_details"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            style="@style/detail_style_tittle"
+            android:text="@string/created_details" />
 
         <TextView
             android:id="@+id/tvCreatedLocationDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            style="@style/detail_style"
             tools:text="2017-11-10T12:56:33.798Z" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

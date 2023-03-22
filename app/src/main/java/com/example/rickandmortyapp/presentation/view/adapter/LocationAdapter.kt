@@ -3,12 +3,12 @@ package com.example.rickandmortyapp.presentation.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 
 class LocationAdapter(
     var locationsList: List<LocationsResultsModel>,
-    private val onItemSelected: (Int) -> Unit,
+    private val onItemSelected: (String) -> Unit,
 ) :
     RecyclerView.Adapter<LocationsViewHolder>() {
 
