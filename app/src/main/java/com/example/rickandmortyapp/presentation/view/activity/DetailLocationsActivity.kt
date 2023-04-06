@@ -2,9 +2,9 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityDetailLocationsBinding
 import com.example.rickandmortyapp.domain.model.LocationsResultsModel
+import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailLocationsViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,6 +18,7 @@ class DetailLocationsActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailLocationsBinding
+    private val detailLocationsViewModel by lazy { DetailLocationsViewModel() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +31,11 @@ class DetailLocationsActivity : AppCompatActivity() {
 
     private fun getLocationInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val locationDetail =
-                getRetrofit().create(ApiService::class.java).getLocationsDetail(id)
-            if (locationDetail.body() != null) {
-                runOnUiThread {
-                    createUi(locationDetail.body()!!)
+            val locationDetail = detailLocationsViewModel.getDetailLocations()
+
+            runOnUiThread {
+                if (locationDetail.isNotEmpty()) {
+                    createUi(locationDetail)
                 }
             }
         }
