@@ -6,7 +6,7 @@ import com.example.rickandmortyapp.domain.usecase.details.GetDetailLocationsUseC
 class DetailLocationsViewModel {
     private val useCase by lazy { GetDetailLocationsUseCase() }
 
-    suspend fun getDetailLocations(): LocationsResultsModel {
-        return useCase.invoke()
+    suspend fun getDetailLocations(id: String): LocationsResultsModel {
+        return useCase.invoke(id)
     }
 }

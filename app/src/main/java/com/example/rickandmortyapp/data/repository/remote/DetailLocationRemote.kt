@@ -9,9 +9,9 @@ import kotlinx.coroutines.withContext
 class DetailLocationRemote {
     private val retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getDetailLocations(): LocationsResultsModel? {
+    suspend fun getDetailLocations(id: String): LocationsResultsModel? {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(ApiService::class.java).getLocationsDetail()
+            val response = retrofit.create(ApiService::class.java).getLocationsDetail(id)
             response.body()
         }
     }

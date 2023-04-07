@@ -6,7 +6,7 @@ import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 class DetailLocationsRepository {
     private val api = DetailLocationRemote()
 
-    suspend fun getDetailLocations(): LocationsResultsModel? {
-        return api.getDetailLocations()
+    suspend fun getDetailLocations(id: String): LocationsResultsModel? {
+        return api.getDetailLocations(id)
     }
 }

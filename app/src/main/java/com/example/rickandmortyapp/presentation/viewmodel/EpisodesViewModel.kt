@@ -1,7 +1,7 @@
 package com.example.rickandmortyapp.presentation.viewmodel
 
 import com.example.rickandmortyapp.domain.model.EpisodesResultModel
-import com.example.rickandmortyapp.domain.usecase.GetEpisodesUSeCase
+import com.example.rickandmortyapp.domain.usecase.GetEpisodesUseCase
 
 class EpisodesViewModel {
     /**
@@ -16,7 +16,7 @@ class EpisodesViewModel {
      *
      * terminado esto debemos de entrelazar la segunda funcion que se hace desde la activity
      */
-    private val useCase by lazy { GetEpisodesUSeCase() }
+    private val useCase by lazy { GetEpisodesUseCase() }
 
     suspend fun getEpisodesList(): List<EpisodesResultModel> {
         return useCase.invoke()
