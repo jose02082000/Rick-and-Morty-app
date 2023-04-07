@@ -3,7 +3,7 @@ package com.example.rickandmortyapp.domain.usecase
 import com.example.rickandmortyapp.data.repository.EpisodesRepository
 import com.example.rickandmortyapp.domain.model.EpisodesResultModel
 
-class GetEpisodesUSeCase {
+class GetEpisodesUseCase {
     /**
      * al interior de esta clase vamos a realizar lo sgte
      * 1) crear y conectar con el repositorio que necesitamos que es donde estan alojados los datos que nosotros necesitamos

@@ -1,15 +1,16 @@
 package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityDetailLocationsBinding
 import com.example.rickandmortyapp.domain.model.LocationsResultsModel
+import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailLocationsViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Timer
+import kotlin.concurrent.timerTask
 
 class DetailLocationsActivity : AppCompatActivity() {
 
@@ -18,6 +19,7 @@ class DetailLocationsActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailLocationsBinding
+    private val detailLocationsViewModel by lazy { DetailLocationsViewModel() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +32,24 @@ class DetailLocationsActivity : AppCompatActivity() {
 
     private fun getLocationInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val locationDetail =
-                getRetrofit().create(ApiService::class.java).getLocationsDetail(id)
-            if (locationDetail.body() != null) {
-                runOnUiThread {
-                    createUi(locationDetail.body()!!)
-                }
+            val locationDetail = detailLocationsViewModel.getDetailLocations(id)
+
+            runOnUiThread {
+                locationDetail.id?.let {
+                    createUi(locationDetail)
+                } ?: showErrorMessageAlert()
             }
         }
+    }
+
+    private fun showErrorMessageAlert() {
+        Toast.makeText(this, "Episodio no encontrado", Toast.LENGTH_LONG).show()
+        Timer().schedule(
+            timerTask {
+                onBackPressed()
+            },
+            3000
+        )
     }
 
     private fun createUi(location: LocationsResultsModel) {
@@ -47,12 +59,5 @@ class DetailLocationsActivity : AppCompatActivity() {
             tvNameLocationDetail.text = location.name
             tvNameTypeDetail.text = location.type
         }
-    }
-
-    private fun getRetrofit(): Retrofit {
-        return Retrofit
-            .Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }

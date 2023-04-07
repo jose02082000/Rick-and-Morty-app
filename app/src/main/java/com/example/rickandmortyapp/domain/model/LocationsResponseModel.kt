@@ -15,11 +15,12 @@ data class LocationsInfoModel(
 )
 
 data class LocationsResultsModel(
-    @SerializedName("id") var id: Int,
+    @SerializedName("id") var id: Int? = null,
     @SerializedName("name") var name: String? = null,
     @SerializedName("type") var type: String? = null,
     @SerializedName("dimension") var dimension: String? = null,
     @SerializedName("residents") var residents: ArrayList<String> = arrayListOf(),
     @SerializedName("url") var url: String? = null,
     @SerializedName("created") var created: String? = null,
+    @SerializedName("error") var error: String? = null,
 )
