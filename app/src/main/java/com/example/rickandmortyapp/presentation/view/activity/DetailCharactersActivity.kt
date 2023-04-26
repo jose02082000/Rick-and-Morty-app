@@ -2,15 +2,13 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityDetailcharactersBinding
 import com.example.rickandmortyapp.domain.model.CharactersResultModel
+import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailCharacterViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class DetailCharactersActivity : AppCompatActivity() {
 
@@ -19,6 +17,7 @@ class DetailCharactersActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailcharactersBinding
+    private val detailCharacterViewModel by lazy { DetailCharacterViewModel() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +30,9 @@ class DetailCharactersActivity : AppCompatActivity() {
 
     private fun getCharacterInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val charactersDetail =
-                getRetrofit().create(ApiService::class.java).getCharactersDetail(id)
-            if (charactersDetail.body() != null) {
-                runOnUiThread {
-                    creteUi(charactersDetail.body()!!)
-                }
+            val characterDetail = detailCharacterViewModel.getDetailCharacters(id)
+            runOnUiThread {
+                creteUi(characterDetail)
             }
         }
     }
@@ -51,12 +47,5 @@ class DetailCharactersActivity : AppCompatActivity() {
             tvStatusCharacterDetail.text = character.status
             tvOriginCharacterDetail.text = character.origin.name
         }
-    }
-
-    private fun getRetrofit(): Retrofit {
-        return Retrofit
-            .Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }

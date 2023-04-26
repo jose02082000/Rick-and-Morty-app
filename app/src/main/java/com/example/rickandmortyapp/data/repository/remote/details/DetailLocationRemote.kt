@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.data.repository.remote
+package com.example.rickandmortyapp.data.repository.remote.details
 
 import com.example.rickandmortyapp.core.RetrofitHelper
 import com.example.rickandmortyapp.data.repository.network.ApiService

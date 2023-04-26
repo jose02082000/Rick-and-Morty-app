@@ -15,7 +15,7 @@ data class CharactersInfoModel(
 )
 
 data class CharactersResultModel(
-    @SerializedName("id") var id: Int,
+    @SerializedName("id") var id: String,
     @SerializedName("name") var name: String,
     @SerializedName("status") var status: String,
     @SerializedName("species") var species: String,
@@ -25,9 +25,7 @@ data class CharactersResultModel(
     @SerializedName("location") var location: LocationModel,
     @SerializedName("image") var image: String,
     @SerializedName("episode") var episode: ArrayList<String> = arrayListOf(),
-    @SerializedName("url") var url: String,
     @SerializedName("created") var created: String,
-
 )
 
 data class OriginModel(

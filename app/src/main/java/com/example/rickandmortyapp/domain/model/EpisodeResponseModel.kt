@@ -15,7 +15,7 @@ data class EpisodesInfoModel(
 )
 
 data class EpisodesResultModel(
-    @SerializedName("id") var id: Int,
+    @SerializedName("id") var id: String,
     @SerializedName("name") var name: String? = null,
     @SerializedName("air_date") var airDate: String? = null,
     @SerializedName("episode") var episode: String? = null,

@@ -48,7 +48,7 @@ class DetailLocationsActivity : AppCompatActivity() {
             timerTask {
                 onBackPressed()
             },
-            3000
+            3000,
         )
     }
 

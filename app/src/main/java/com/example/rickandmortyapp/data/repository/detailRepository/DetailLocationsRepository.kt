@@ -1,6 +1,6 @@
-package com.example.rickandmortyapp.data.repository
+package com.example.rickandmortyapp.data.repository.detailRepository
 
-import com.example.rickandmortyapp.data.repository.remote.DetailLocationRemote
+import com.example.rickandmortyapp.data.repository.remote.details.DetailLocationRemote
 import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 
 class DetailLocationsRepository {

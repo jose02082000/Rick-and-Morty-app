@@ -2,18 +2,17 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.data.repository.network.ApiService
 import com.example.rickandmortyapp.databinding.ActivityEpisodesDetailBinding
 import com.example.rickandmortyapp.domain.model.EpisodesResultModel
+import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailEpisodeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class DetailEpisodesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEpisodesDetailBinding
+    private val detailEpisodesViewModel by lazy { DetailEpisodeViewModel() }
 
     companion object {
         const val EXTRA_ID = "extra_id"
@@ -30,12 +29,10 @@ class DetailEpisodesActivity : AppCompatActivity() {
 
     private fun getEpisodesInformation(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val episodeDetail =
-                getRetrofit().create(ApiService::class.java).getEpisodesDetail(id)
-            if (episodeDetail.body() != null) {
-                runOnUiThread {
-                    createUi(episodeDetail.body()!!)
-                }
+            val episodeDetail = detailEpisodesViewModel.getDetailEpisodes(id)
+
+            runOnUiThread {
+                createUi(episodeDetail)
             }
         }
     }
@@ -47,12 +44,5 @@ class DetailEpisodesActivity : AppCompatActivity() {
             tvCreatedLocationDetail.text = episode.created
             tvEpSodeLocationDetail.text = episode.episode
         }
-    }
-
-    private fun getRetrofit(): Retrofit {
-        return Retrofit
-            .Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }
