@@ -2,6 +2,7 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.rickandmortyapp.databinding.ActivityDetailcharactersBinding
 import com.example.rickandmortyapp.domain.model.CharactersResultModel
 import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailCharacterViewModel
@@ -29,10 +30,12 @@ class DetailCharactersActivity : AppCompatActivity() {
     }
 
     private fun getCharacterInformation(id: String) {
+        binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val characterDetail = detailCharacterViewModel.getDetailCharacters(id)
             runOnUiThread {
                 creteUi(characterDetail)
+                binding.progressBar.isVisible = false
             }
         }
     }
@@ -45,7 +48,7 @@ class DetailCharactersActivity : AppCompatActivity() {
             tvCreateCharacterDetail.text = character.created
             tvSpecieCharacterDetail.text = character.species
             tvStatusCharacterDetail.text = character.status
-            tvOriginCharacterDetail.text = character.origin.name
+            tvOriginCharacterDetail.text = character.origin?.name
         }
     }
 }

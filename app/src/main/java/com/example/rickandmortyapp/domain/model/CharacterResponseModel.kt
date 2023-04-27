@@ -15,17 +15,17 @@ data class CharactersInfoModel(
 )
 
 data class CharactersResultModel(
-    @SerializedName("id") var id: String,
-    @SerializedName("name") var name: String,
-    @SerializedName("status") var status: String,
-    @SerializedName("species") var species: String,
-    @SerializedName("type") var type: String,
-    @SerializedName("gender") var gender: String,
-    @SerializedName("origin") var origin: OriginModel,
-    @SerializedName("location") var location: LocationModel,
-    @SerializedName("image") var image: String,
+    @SerializedName("id") var id: String? = null,
+    @SerializedName("name") var name: String? = null,
+    @SerializedName("status") var status: String? = null,
+    @SerializedName("species") var species: String? = null,
+    @SerializedName("type") var type: String? = null,
+    @SerializedName("gender") var gender: String? = null,
+    @SerializedName("origin") var origin: OriginModel? = null,
+    @SerializedName("location") var location: LocationModel? = null,
+    @SerializedName("image") var image: String? = null,
     @SerializedName("episode") var episode: ArrayList<String> = arrayListOf(),
-    @SerializedName("created") var created: String,
+    @SerializedName("created") var created: String? = null,
 )
 
 data class OriginModel(

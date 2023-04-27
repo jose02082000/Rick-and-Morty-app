@@ -3,6 +3,7 @@ package com.example.rickandmortyapp.presentation.view.activity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.rickandmortyapp.databinding.ActivityDetailLocationsBinding
 import com.example.rickandmortyapp.domain.model.LocationsResultsModel
 import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailLocationsViewModel
@@ -31,12 +32,14 @@ class DetailLocationsActivity : AppCompatActivity() {
     }
 
     private fun getLocationInformation(id: String) {
+        binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val locationDetail = detailLocationsViewModel.getDetailLocations(id)
 
             runOnUiThread {
                 locationDetail.id?.let {
                     createUi(locationDetail)
+                    binding.progressBar.isVisible = false
                 } ?: showErrorMessageAlert()
             }
         }

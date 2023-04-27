@@ -2,7 +2,8 @@ package com.example.rickandmortyapp.presentation.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rickandmortyapp.databinding.ActivityEpisodesDetailBinding
+import androidx.core.view.isVisible
+import com.example.rickandmortyapp.databinding.ActivityDetailEpisodesBinding
 import com.example.rickandmortyapp.domain.model.EpisodesResultModel
 import com.example.rickandmortyapp.presentation.viewmodel.detail.DetailEpisodeViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class DetailEpisodesActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEpisodesDetailBinding
+    private lateinit var binding: ActivityDetailEpisodesBinding
     private val detailEpisodesViewModel by lazy { DetailEpisodeViewModel() }
 
     companion object {
@@ -20,7 +21,7 @@ class DetailEpisodesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEpisodesDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailEpisodesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val id = intent.getStringExtra(EXTRA_ID).orEmpty()
@@ -28,11 +29,13 @@ class DetailEpisodesActivity : AppCompatActivity() {
     }
 
     private fun getEpisodesInformation(id: String) {
+        binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val episodeDetail = detailEpisodesViewModel.getDetailEpisodes(id)
 
             runOnUiThread {
                 createUi(episodeDetail)
+                binding.progressBar.isVisible = false
             }
         }
     }
